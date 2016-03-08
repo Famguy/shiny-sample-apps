@@ -1,0 +1,17 @@
+{
+    "contents" : "\n# This is the server logic for a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\nlibrary(shiny)\nlibrary(lattice)\n\nshinyServer(function(input, output) {\n  output$selections <- renderText({\n   paste0(\"You selected GSM\", input$gm1,\" and GSM\", input$gm2) \n    \n  })\n\n  output$distPlot <- renderPlot({\n    gm1name <- paste0('GSM', input$gm1)\n    gm2name <- paste0('GSM', input$gm2)\n    pcaplot(gm1name, gm2name)\n  })\n  \n  output$pcatable <- renderTable({\n    gm1name <- paste0('GSM', input$gm1)\n    gm2name <- paste0('GSM', input$gm2)\n    pcatable(gm1name, gm2name)\n  })\n  \n\n})\n",
+    "created" : 1457433645891.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3145965954",
+    "id" : "A2F9AB29",
+    "lastKnownWriteTime" : 1457455896,
+    "path" : "~/GSOC/gmod-toyapp/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

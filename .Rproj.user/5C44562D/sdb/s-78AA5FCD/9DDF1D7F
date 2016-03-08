@@ -1,0 +1,18 @@
+{
+    "contents" : "library(GEOquery)\nlibrary(lattice)\nlibrary(pcaMethods)\n\n# gm1 <- getGEO('GSM1570843')\n# gm2 <- getGEO('GSM1570844')\n# gm3 <- getGEO('GSM1570845')\npcaplot <- function (gm1name, gm2name){\n  \n  gm1 <- getGEO(gm1name)\n  gm2 <- getGEO(gm2name)\n  \n  gmt1 <- Table(gm1)\n  gmt2 <- Table(gm2)  \n  #gmt3 <- Table(gm3)  \n  \n  df <- data.frame(gmt1[2],gmt2[2])#,gmt3[2])\n  df$VALUE <- as.numeric(df$VALUE)\n  df$VALUE.1 <- as.numeric(df$VALUE.1)\n  #df$VALUE.2 <- as.numeric(df$VALUE.2)\n  \n  dft <- as.data.frame(t(df))\n  pca <- prcomp(dft)\n  pcafig <- xyplot(PC2 ~ PC1 , data=as.data.frame(pca$x))\n  pcafig\n}\n\npcatable <- function (gm1name, gm2name){\n  \n  gm1 <- getGEO(gm1name)\n  gm2 <- getGEO(gm2name)\n  \n  gmt1 <- Table(gm1)\n  gmt2 <- Table(gm2)  \n\n  df <- data.frame(gmt1[1],gmt1[2],gmt2[2])\n  df\n}",
+    "created" : 1457441608567.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3955173471",
+    "id" : "9DDF1D7F",
+    "lastKnownWriteTime" : 1457455928,
+    "path" : "~/GSOC/gmod-toyapp/global.R",
+    "project_path" : "global.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
