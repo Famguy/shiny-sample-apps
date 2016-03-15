@@ -15,6 +15,9 @@ shinyUI(fluidPage(
   # Sidebar with a slider input for number of bins
   sidebarLayout(
     sidebarPanel(
+      helpText("This is a tool to do Principal Component Analysis on two GEO Samples based on their GSM ids"),
+      helpText("Some sample GSM ids: "),
+      helpText("1570843 - 1571051 (For Gene expression data from 209 ependymal tumor samples - GSE64415)"),
       numericInput("gm1", label = h4("GSM ID of first sample"), value = 1570843),
       numericInput("gm2", label = h4("GSM ID of second sample"), value = 1570844)
     ),

@@ -30,3 +30,5 @@ pcatable <- function (gm1, gm2){
   df <- data.frame(gmt1[1],gmt1[2],gmt2[2])
   df[1:50,]
 }
+
+
